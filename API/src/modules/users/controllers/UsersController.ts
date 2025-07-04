@@ -6,7 +6,7 @@ export default class UsersController{
 
   public async index(request: Request, response: Response, next: NextFunction): Promise<Response | void> {
     try {
-      const listUser = new ListUserService();
+      const listUser = new ListUserService(); 
       const users = await listUser.execute();
       console.log(request.user.id);
       return response.json(users);
@@ -16,7 +16,7 @@ export default class UsersController{
   }
 
   public async create(request: Request, response: Response, next: NextFunction): Promise<Response | void> {
-    try {
+    try {     
       const { name, email, password } = request.body;
       const createUser = new CreateUserService();
       const user = await createUser.execute({ name, email, password });
